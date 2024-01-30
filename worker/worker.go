@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"sync"
 	"sync/atomic"
 	"time"
 
@@ -21,7 +20,6 @@ type Worker struct {
 
 	pubSub  *redis.PubSub
 	myRedis *myredis.MyRedis
-	mx      sync.Mutex
 }
 
 func New(myRedis *myredis.MyRedis) *Worker {
@@ -29,7 +27,6 @@ func New(myRedis *myredis.MyRedis) *Worker {
 		Key:       fmt.Sprintf("worker:%s", uuid.New().String()),
 		MaxMosaic: 1,
 		myRedis:   myRedis,
-		mx:        sync.Mutex{},
 	}
 
 	return worker
