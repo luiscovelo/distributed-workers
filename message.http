@@ -1,0 +1,3 @@
+# Publish a simple message to pub/sub channel
+POST http://localhost:9000/publish/teste
+content-type: application/json

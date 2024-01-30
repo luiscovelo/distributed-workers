@@ -1,0 +1,9 @@
+version: '3'
+services:
+  redis:
+    image: redis:7.0.2-alpine
+    container_name: distributed-workers-cache
+    ports:
+      - 6379:6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
